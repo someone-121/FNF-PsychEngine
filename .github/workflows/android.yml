@@ -39,14 +39,14 @@ jobs:
         uses: android-actions/setup-android@main
 
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@v1.2.0
+        uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.3.1
 
       - name: Install Haxelib
         run: |
           haxelib --quiet setup /home/runner/haxelib
-          haxelib install hxcpp 4.2.1 > /dev/null
+          haxelib --quiet install hxcpp 4.2.1 > /dev/null
           haxelib --quiet install lime 7.9.0
           haxelib --quiet install openfl 9.1.0
           haxelib --quiet --never install flixel 4.11.0
