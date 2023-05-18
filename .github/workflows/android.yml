@@ -33,13 +33,13 @@ jobs:
         uses: actions/setup-java@main
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: 18
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@main
 
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+        uses: krdlab/setup-haxe@1.2.0
         with:
           haxe-version: 4.3.1
 
