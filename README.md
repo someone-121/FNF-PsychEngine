@@ -1,6 +1,21 @@
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
+## MULTI LUAS SCRIPTS IN A SONG:
+You must have a script in the data/songname called **script.lua** to use more than one script.
+Inside the script, in the onCreate() function - (if it doesn't exist, create it using the function onCreate() code and at the end the code "end". 
+
+```
+function onCreate() 
+-- your code
+end
+```
+
+In this function, you must add the code:
+`addLuaScript("data/termination/dodge.lua") --This is a example`
+You can change this path to scripts, or another folder and it will add the script when you start the song
+`addLuaScript("scripts/dodge.lua") --This is other example`
+
 ## Installation:
 You must have [the most up-to-date version of Haxe](https://haxe.org/download/), seriously, stop using 4.1.5, it misses some stuff.
 
