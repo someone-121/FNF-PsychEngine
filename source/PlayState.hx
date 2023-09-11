@@ -874,23 +874,12 @@ class PlayState extends MusicBeatState
 
 		// "GLOBAL" SCRIPTS
 		#if LUA_ALLOWED
-		var doPush:Bool = false; 
-		if (OpenFlAssets.exists('assets/scripts/script.lua')) {
-		  doPush = true;
+		var daScripts:Array<String> = ['script', 'script1', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
+		for (script in daScripts) {
+			var scriptPath:String = Paths.getPreloadPath('scripts/' + script + '.lua');
+			if (OpenFlAssets.exists(scriptPath))
+				luaArray.push(new FunkinLua(Asset2File.getPath(scriptPath)));
 		}
-		
-		if(doPush)
-		luaArray.push(new FunkinLua(Asset2File.getPath('assets/scripts/script.lua')));
-		#end
-		
-		#if LUA_ALLOWED
-		var doPush:Bool = false; 
-		if (OpenFlAssets.exists('assets/scripts/script1.lua')) {
-		  doPush = true;
-		}
-		
-		if(doPush)
-		luaArray.push(new FunkinLua(Asset2File.getPath('assets/scripts/script1.lua'))); // It doesn't have to be "script1", "script2", you can put whatever name you want. 
 		#end
 
 		// STAGE SCRIPTS
@@ -1194,23 +1183,12 @@ class PlayState extends MusicBeatState
 
 		// SONG SPECIFIC SCRIPTS
 		#if LUA_ALLOWED
-		var doPush:Bool = false;
-		if (OpenFlAssets.exists('assets/data/' + Paths.formatToSongPath(SONG.song) + '/script.lua')) {
-		  doPush = true;
+		var daScripts:Array<String> = ['script', 'script1', 'script2', 'script3', 'script4']; // I don't think I need to explain this 
+		for (script in daScripts) {
+		var scriptPath:String = Paths.getPreloadPath('data/' + Paths.formatToSongPath(SONG.song) + '/' + script + '.lua');
+			if (OpenFlAssets.exists(scriptPath))
+				luaArray.push(new FunkinLua(Asset2File.getPath(scriptPath)));
 		}
-		
-		if(doPush)
-		luaArray.push(new FunkinLua(Asset2File.getPath('assets/data/' + Paths.formatToSongPath(SONG.song) + '/script.lua')));
-		#end
-		
-		#if LUA_ALLOWED
-		var doPush:Bool = false;
-		if (OpenFlAssets.exists('assets/data/' + Paths.formatToSongPath(SONG.song) + '/script1.lua')) {
-		  doPush = true;
-		}
-		
-		if(doPush)
-		luaArray.push(new FunkinLua(Asset2File.getPath('assets/data/' + Paths.formatToSongPath(SONG.song) + '/script1.lua')));
 		#end
 
 		var daSong:String = Paths.formatToSongPath(curSong);
