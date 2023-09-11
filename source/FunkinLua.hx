@@ -1492,6 +1492,18 @@ class FunkinLua {
 			}
 			return key;
 		});
+		#if mobile
+		Lua_helper.add_callback(lua, "justTouched", function() {
+		  var justTouched:Bool = false;
+		  
+		  for (touch in FlxG.touches.list)
+		  	if (touch.justPressed) {
+		  	  justTouched = true;
+		  	  return true;
+		  	}
+		  	return false;
+		});
+		#end
 		Lua_helper.add_callback(lua, "addCharacterToList", function(name:String, type:String) {
 			var charType:Int = 0;
 			switch(type.toLowerCase()) {
